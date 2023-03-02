@@ -35,6 +35,20 @@ def delete(request):
     data=data.json()
     return render(request,'showdata.html',{'data':data})
 
+def update(request):
+    if request.method =='POST':
+        id = request.POST['hide']
+        name = request.POST['name']
+        price = request.POST['price']
+        category = request.POST['category']
+        company = request.POST['company']
+        data = {'name':name,'price':price,'cat':category,'cmp':company}
+        requests.put('http://tanveerpp.pythonanywhere.com/product/'+id+'/',data)
+        data=requests.get('http://tanveerpp.pythonanywhere.com/product/')
+        data=data.json()
+        return render(request,'showdata.html',{'data':data})
+
+
 
 
         

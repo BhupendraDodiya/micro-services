@@ -25,4 +25,5 @@ urlpatterns = [
     path('showone',views.showone),
     path('add',views.add),
     path('delete',views.delete),
+    path('update',views.update),
 ]
